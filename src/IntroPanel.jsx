@@ -1,10 +1,64 @@
-//  react\src\IntroPanel.jsx
+import { useState } from 'react';
 
 export default function IntroPanel() {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div className="relative max-w-xl p-8 text-center rounded-xl shadow-xl bg-white/30 backdrop-blur-md border border-white/20">
-      <h1 className="text-2xl font-bold text-gray-900 mb-2">Frosted Panel</h1>
-      <p className="text-gray-800">This is a semi-transparent white box with blur.</p>
+    <div className="fixed inset-0 z-10 flex items-center justify-center p-4">
+      <div className="backdrop-blur-sm bg-white/10 rounded-2xl p-8 text-center shadow-xl w-full h-full max-w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] flex flex-col items-center justify-center gap-12">
+        
+        {/* Wrap full line with motion */}
+        <div
+          className={`flex items-center justify-center gap-6 transition-transform duration-1000 ${
+            hovered ? 'translate-x-0' : '-translate-x-32'
+          }`}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          <p className="text-5xl md:text-8xl font-extrabold text-white whitespace-nowrap">
+            Hello, I am
+          </p>
+
+          {/* Animated Name */}
+          <div className="relative w-[18rem] h-[5rem]">
+            {/* Jing -> 经 */}
+            <span className={`absolute left-0 top-0 text-6xl md:text-8xl font-extrabold text-white transition-transform duration-1000 ${hovered ? 'translate-x-0' : 'translate-x-[21rem]'}`}>
+              <span className={`block transition-all duration-300 ${hovered ? 'opacity-0 blur-sm' : 'opacity-100 blur-0'}`}>
+                Jing
+              </span>
+              <span className={`absolute top-0 left-0 transition-all duration-300 ${hovered ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}>
+                经
+              </span>
+            </span>
+
+            {/* Xu -> 旭 */}
+            <span className={`absolute left-[7rem] top-0 text-6xl md:text-8xl font-extrabold text-white transition-transform duration-1000 ${hovered ? 'translate-x-0' : '-translate-x-[7rem]'}`}>
+              <span className={`block transition-all duration-300 ${hovered ? 'opacity-0 blur-sm' : 'opacity-100 blur-0'}`}>
+                Xu
+              </span>
+              <span className={`absolute top-0 left-0 transition-all duration-300 ${hovered ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}>
+                旭
+              </span>
+            </span>
+
+            {/* Hui -> 晖 */}
+            <span className={`absolute left-[14rem] top-0 text-6xl md:text-8xl font-extrabold text-white transition-transform duration-1000 ${hovered ? 'translate-x-0' : '-translate-x-[5rem]'}`}>
+              <span className={`block transition-all duration-300 ${hovered ? 'opacity-0 blur-sm' : 'opacity-100 blur-0'}`}>
+                Hui
+              </span>
+              <span className={`absolute top-0 left-0 transition-all duration-300 ${hovered ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}>
+                晖
+              </span>
+            </span>
+          </div>
+        </div>
+
+        {/* Line 2 */}
+        <p className="text-4xl md:text-8xl font-semibold text-white/90">
+          But you can call me Tom
+        </p>
+      </div>
+      <div className="absolute justify-center bottom-10 text-6xl">^</div>
     </div>
   );
 }

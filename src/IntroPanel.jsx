@@ -1,10 +1,24 @@
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
 export default function IntroPanel() {
   const [hovered, setHovered] = useState(false);
+  const [scrolled,setScrolled] = useState(false);
+
+  useEffect(() => {
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 150);
+    }
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <div className="fixed inset-0 z-10 flex items-center justify-center p-4">
+    <div
+      className={`
+        fixed inset-0 z-10 flex items-center justify-center p-4 transition-transform duration-1000 ease-in-out
+        ${scrolled ? '-translate-y-full opacity-100' : 'translate-y-0 opacity-100'}
+      `}>
       <div className="backdrop-blur-sm bg-white/10 rounded-2xl p-8 text-center shadow-xl w-full h-full max-w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] flex flex-col items-center justify-center gap-12">
         
         {/* Wrap full line with motion */}

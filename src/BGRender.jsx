@@ -18,7 +18,7 @@ function TModel({ filePath, scrollY }) {
       // Zoom from far to near
       const targetZ = 12 - scrollProgress * 10; // Z: 12 → 2
       const targetY = -2 + scrollProgress * 2;  // Y: -2 → 0
-      const scale = 0.1 + scrollProgress * 0.9; // scale: 0.1 → 1.0
+      const scale = 0.01 + scrollProgress * 0.1; // scale: 0.1 → 1.0
 
       modelRef.current.position.set(
         Math.sin(t) * 0.1,

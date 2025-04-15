@@ -33,12 +33,58 @@ export default function App() {
             <p className="text-sm text-gray-600">This is a basic card component styled with Tailwind.</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 my-4">
+          <div className="hight-200 grid grid-cols-2 gap-4 my-4">
             <div className="bg-purple-500 text-white p-6 rounded-xl text-center">1</div>
             <div className="bg-yellow-400 text-black p-6 rounded-xl text-center">2</div>
             <div className="bg-pink-500 text-white p-6 rounded-xl text-center">3</div>
             <div className="bg-teal-400 text-white p-6 rounded-xl text-center">4</div>
           </div>
+          {/* Section 1 */}
+      <section className="h-screen bg-gradient-to-br from-blue-800/10 to-indigo-900 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
+          <p className="text-xl text-white/80">Scroll down to explore more</p>
+        </div>
+      </section>
+
+      {/* Section 2 */}
+      <section className="h-screen bg-gradient-to-br from-slate-800/10 to-gray-900 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl font-semibold">Project Highlights</h2>
+          <p className="text-lg text-white/70">Built with React, Three.js, and Tailwind</p>
+        </div>
+      </section>
+      {/* Section 1 */}
+      <section className="h-screen bg-gradient-to-br from-blue-800/10 to-indigo-900 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
+          <p className="text-xl text-white/80">Scroll down to explore more</p>
+        </div>
+      </section>
+
+      {/* Section 2 */}
+      <section className="h-screen bg-gradient-to-br from-slate-800/10 to-gray-900 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl font-semibold">Project Highlights</h2>
+          <p className="text-lg text-white/70">Built with React, Three.js, and Tailwind</p>
+        </div>
+      </section>
+      {/* Section 1 */}
+      <section className="h-screen bg-gradient-to-br from-blue-800/10 to-indigo-900 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
+          <p className="text-xl text-white/80">Scroll down to explore more</p>
+        </div>
+      </section>
+
+      {/* Section 2 */}
+      <section className="h-screen bg-gradient-to-br from-slate-800/10 to-gray-900 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl font-semibold">Project Highlights</h2>
+          <p className="text-lg text-white/70">Built with React, Three.js, and Tailwind</p>
+        </div>
+      </section>
+      
         </div>
       </section>
     </main>

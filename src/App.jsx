@@ -1,4 +1,5 @@
 import BGRender from './BGRender';
+import ModelRender from './ModelRender';
 import IntroPanel from './IntroPanel';
 
 export default function App() {
@@ -8,7 +9,7 @@ export default function App() {
       <section className="relative z-10 pointer-events-auto">
         <IntroPanel />
         {/* Spacer for intro panel */}
-        <section className="h-screen "></section>
+        <section className="h-screen"></section>
         {/* Test blocks */}
           
         {/* Section 1 */}
@@ -16,6 +17,23 @@ export default function App() {
           <div className="text-center space-y-4">
             <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
             <p className="text-xl text-white/80">Scroll down to explore more</p>
+          </div>
+        </section>
+
+        {/* Sample panel */}
+        <section className="h-screen bg-gradient-to-br from-blue-800/10 to-indigo-900 flex items-center justify-center">
+          <div className="text-center p-8 space-y-4 flex items-center justify-center">
+            
+            {/* Left panel - model */}
+            <div className="w-[400px] h-[400px] rounded-lg overflow-hidden shadow-lg bg-white">
+              <ModelRender filePath="/Mavic.glb" />
+            </div>
+            
+            {/* Right panel - Text */}
+            <div className="p-8 space-y-4 items-center justify-center columns-xs relative">
+              <div className="text-5xl font-bold">Welcome to My Portfolio</div>
+              <div className="text-xl text-white/80">Scroll down to explore more, test more, test more, test more, test more, test more, test more, test </div>
+            </div>
           </div>
         </section>
 

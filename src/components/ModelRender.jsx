@@ -1,4 +1,4 @@
-// react\src\ModelRender.jsx
+// src\components\ModelRender.jsx
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';

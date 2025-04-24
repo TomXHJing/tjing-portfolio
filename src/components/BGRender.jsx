@@ -1,4 +1,4 @@
-//  react\src\BGRender.jsx
+// src\components\BGRender.jsx
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
@@ -18,7 +18,7 @@ function TModel({ filePath, scrollY }) {
       // Zoom from far to near
       const targetZ = 12 - scrollProgress * 10; // Z: 12 → 2
       const targetY = -2 + scrollProgress * 2;  // Y: -2 → 0
-      const scale = 0.01 + scrollProgress * 0.1; // scale: 0.1 → 1.0
+      const scale = 0.01 + scrollProgress * 0.07; // scale: 0.1 → 1.0
 
       modelRef.current.position.set(
         Math.sin(t) * 0.1,
@@ -65,8 +65,8 @@ export default function BGRender({ filePath }) {
       camera={{ position: [0, 0, 12], fov: 45 }}
     >
       <StarsBackground />
-      <ambientLight intensity={2} />
-      <directionalLight position={[5, 5, 5]} intensity={0.5} castShadow />
+      <ambientLight intensity={1} />
+      <directionalLight position={[5, 5, 5]} intensity={1.5} castShadow />
       <TModel filePath={filePath} scrollY={scrollY} />
     </Canvas>
   );

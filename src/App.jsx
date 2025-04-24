@@ -1,18 +1,30 @@
-import BGRender from './BGRender';
-import ModelRender from './ModelRender';
-import IntroPanel from './IntroPanel';
+// src\App.jsx
+
+import BGRender from './components/BGRender';
+import ModelRender from './components/ModelRender';
+import IntroPanel from './components/IntroPanel';
+import NavBar from './components/NavBar';
+import LoadingScreen from './components/LoadingScreen';
+import ContentPanel from './components/ContentPanel'
 
 export default function App() {
   return (
     <main className="relative min-h-screen bg-gray-800 text-white overflow-x-hidden p-8 space-y-6">
+      <LoadingScreen />
       <BGRender filePath="/Tmodel.glb" />
       <section className="relative z-10 pointer-events-auto">
         <IntroPanel />
+
         {/* Spacer for intro panel */}
         <section className="h-screen"></section>
+        <section className="h-screen"></section>
+
+        <NavBar/>
+
         {/* Test blocks */}
           
         {/* Section 1 */}
+        <ContentPanel/>
         <section className="h-screen bg-gradient-to-br from-blue-800/10 to-indigo-900 flex items-center justify-center">
           <div className="text-center space-y-4">
             <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>

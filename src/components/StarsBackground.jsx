@@ -1,4 +1,4 @@
-//  react\src\StarsBackground.jsx
+// src\components\StarsBackground.jsx
 
 import { useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';

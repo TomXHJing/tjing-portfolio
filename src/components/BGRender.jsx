@@ -2,17 +2,27 @@
 
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import StarsBackground from './StarsBackground';
 
-function TModel({ filePath, scrollY }) {
+function TModel({ filePath, scrollY, turn }) {
   const modelRef = useRef();
   useGLTF.preload(filePath);
   const { scene } = useGLTF(filePath);
 
+  useEffect(() => {
+    if (modelRef.current) {
+      const box = new THREE.Box3().setFromObject(modelRef.current);
+      const center = box.getCenter(new THREE.Vector3());
+      modelRef.current.position.sub(center); // move model so center is at (0,0,0)
+      console.log("Centered model at:", center);
+    }
+  }, [scene]);
+
   // Store target position separately
   const targetPosition = useRef(new THREE.Vector3(0, 0, 0));
+  const accumulatedTurn = useRef(0);
 
   useFrame((state, delta) => {
     const t = state.clock.getElapsedTime();
@@ -27,34 +37,31 @@ function TModel({ filePath, scrollY }) {
       const shiftStart = totalScreenHeight * 1;
       const shiftEnd = totalScreenHeight * 2.5;
   
-      let targetX = 0; 
-      let rotationY = 0; 
+      let targetX = 0;
+      let scrollRotationY = 0; // <== make sure you name this properly
   
       if (scrollY > shiftStart) {
         const shiftProgress = Math.min((scrollY - shiftStart) / (shiftEnd - shiftStart), 1);
   
-        targetX = -4.5 * shiftProgress;
-        rotationY = 0.4 * shiftProgress; // rotation scales with scroll
+        targetX = 5 * shiftProgress;
+        scrollRotationY = -0.4 * shiftProgress;
       }
   
-      // Update target position
       targetPosition.current.set(
         Math.sin(t) * 0.1 + targetX,
         targetY + Math.sin(t) * 0.1,
         targetZ
       );
   
-      // Smooth move toward target
       const lerpSpeed = 2.5;
       modelRef.current.position.lerp(targetPosition.current, delta * lerpSpeed);
   
-      // Smoothly rotate
-      modelRef.current.rotation.y = rotationY;
+      // Fix: only set rotation ONCE
+      accumulatedTurn.current += turn * delta * 0.15; 
+      modelRef.current.rotation.y = scrollRotationY + accumulatedTurn.current;
   
-      // Scale model
       modelRef.current.scale.set(scale, scale, scale);
   
-      // Opacity fade
       modelRef.current.traverse((child) => {
         if (child.material && 'opacity' in child.material) {
           child.material.transparent = true;
@@ -67,24 +74,13 @@ function TModel({ filePath, scrollY }) {
   return <primitive object={scene} ref={modelRef} />;
 }
 
-export default function BGRender({ filePath }) {
+export default function BGRender({ filePath, turn }) {
   const [scrollY, setScrollY] = useState(0);
-  const [controlsEnabled, setControlsEnabled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       setScrollY(currentY);
-
-      // ========== OrbitControls unlock ==========
-      // Enable OrbitControls once you scroll past 2 full screens (window.innerHeight * 2)
-      // Lower this number → enable controls earlier
-      // Raise this number → enable controls later
-      if (currentY > window.innerHeight * 2) {
-        setControlsEnabled(true);
-      } else {
-        setControlsEnabled(false);
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -108,14 +104,9 @@ export default function BGRender({ filePath }) {
     >
       <StarsBackground />
       <ambientLight intensity={1} />
-      <directionalLight position={[5, 5, 5]} intensity={1.5} castShadow />
-      <TModel filePath={filePath} scrollY={scrollY} />
+      <directionalLight position={[5, 5, 5]} intensity={3.5} castShadow />
+      <TModel filePath={filePath} scrollY={scrollY} turn={turn} />
       {/* OrbitControls dynamically enabled based on scroll position */}
-      <OrbitControls
-        enableZoom={controlsEnabled}
-        enablePan={controlsEnabled}
-        enableRotate={controlsEnabled}
-      />
     </Canvas>
   );
 }

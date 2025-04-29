@@ -17,11 +17,11 @@ export default function NavBar() {
   return (
     <div
       className={`
-        fixed top-0 left-0 w-full z-50 transition-transform duration-700 ease-in-out
+        fixed z-50 p-4 top-0 left-0 w-full transition-transform duration-700 ease-in-out
         ${visible ? 'translate-y-0' : '-translate-y-full'}
       `}
     >
-      <nav className="backdrop-blur-md bg-white/30 shadow-md p-4 flex justify-between items-center">
+      <nav className="backdrop-blur-md bg-white/40 shadow-md p-4 rounded-2xl flex justify-between items-center">
         <div className="text-lg font-bold text-white">Tjing Portfolio</div>
         <ul className="flex gap-6 text-white font-medium">
           <li><a href="#projects" className="hover:underline">Projects</a></li>

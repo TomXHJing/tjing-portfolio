@@ -80,8 +80,10 @@ export default function BGRender({ filePath, turn }) {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      setScrollY(currentY);
+      setScrollY(window.scrollY);
     };
+
+    setScrollY(window.scrollY);
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

@@ -17,7 +17,7 @@ export default function NavBar() {
   return (
     <div
       className={`
-        fixed z-50 p-4 top-0 left-0 w-full transition-transform duration-700 ease-in-out
+        fixed z-50 px-12 pt-8 top-0 left-0 w-full transition-transform duration-700 ease-in-out
         ${visible ? 'translate-y-0' : '-translate-y-full'}
       `}
     >

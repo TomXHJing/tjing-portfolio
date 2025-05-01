@@ -4,45 +4,49 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useRef } from 'react';
 
-function ItemModel({ filePath }) {
+function ItemModel({ filePath, rotate }) {
   const modelRef = useRef();
   const { scene } = useGLTF(filePath);
+  const spinVelocity = useRef(0);
 
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    const targetY = 0;
-    const targetZ = 2;
-    const scale = 1;
+  useFrame((_, delta) => {
+    if (!modelRef.current) return;
 
-    if (modelRef.current) {
-      modelRef.current.position.set(
-        Math.sin(t) * 0.1,
-        targetY + Math.sin(t) * 0.1,
-        targetZ
-      );
+    // If triggered, set initial fast spin
+    if (rotate) {
+      spinVelocity.current = 10;
+    }
 
-      modelRef.current.scale.set(scale, scale, scale);
+    // Apply rotation
+    if (spinVelocity.current > 0.001) {
+      modelRef.current.rotation.y += delta * spinVelocity.current;
+
+      // Apply reversed log decay: exponential ease-out
+      spinVelocity.current *= 0.99;
+    } else {
+      spinVelocity.current = 0;
     }
   });
 
   return <primitive object={scene} ref={modelRef} />;
 }
 
-export default function ModelRender({ filePath }) {
+
+export default function ModelRender({ filePath, rotate }) {
   return (
     <Canvas
       style={{
         width: '100%',
         height: '100%',
         pointerEvents: 'auto',
-        background: '#102030',
+        background: 'transparent',
       }}
-      camera={{ position: [0, 5, 25], fov: 90 }}
+      camera={{ position: [0, 0, 50], fov: 40 }}
     >
-      <ambientLight intensity={2} />
-      <directionalLight position={[5, 5, 5]} intensity={4.5} castShadow />
-      <ItemModel filePath={filePath} />
-      <OrbitControls enableZoom enablePan enableRotate />
+      <directionalLight position={[15, 12, 10]} intensity={2} castShadow />
+      <ambientLight intensity={1} />
+      <ItemModel filePath={filePath} rotate={rotate} />
+      <OrbitControls enableZoom={false} enablePan={false} enableRotate={true} />
     </Canvas>
   );
 }

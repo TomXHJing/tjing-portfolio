@@ -34,40 +34,46 @@
 import NavBar from '../components/NavBar';
 import LoadingScreen from '../components/LoadingScreen';
 import ProjectLink from '../components/ProjectLink';
+import BGRender from '../components/BGRender';
 
 export default function Projects() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden overflow-y-scroll no-scrollbar py-5 bg-back-light text-fore-light dark:bg-back-dark dark:text-fore-dark">
-      <LoadingScreen />
-      <section className="relative z-0 pointer-events-auto">
-        <NavBar />
-        <div className="relative h-[4.5rem] w-full"></div>
+    <main>
+      <div className="fixed inset-0 -z-10 bg-back-light dark:bg-back-dark">
+        <BGRender filePath={null} turn={null} />
+      </div>
+      <div className="relative z-10 min-h-screen overflow-x-hidden overflow-y-scroll no-scrollbar py-5 text-fore-light dark:text-fore-dark">
+        <LoadingScreen />
+        <section className="relative z-0 pointer-events-auto">
+          <NavBar />
+          <div className="relative h-[4.5rem] w-full"></div>
 
-        {/*Individual projects below*/}
-        <ProjectLink
-          title="BridgingRoots"
-          subtitle="Language revitalization and education"
-          link="CO"
-          doc="bridgingroots"
-          repo={null}
-          img="/BridgingRoots/bridgingroots-home.JPG"
-          languages="JavaScript, HTML, CSS"
-          tags="React, Three.js, Leaflet, Blender, Express, Google Auth, AWS, MongoDB, Docker"
-        />
+          {/*Individual projects below*/}
+          <ProjectLink
+            title="BridgingRoots"
+            subtitle="Language revitalization and education"
+            link="CO"
+            doc="bridgingroots"
+            repo={null}
+            img="/BridgingRoots/bridgingroots-home.JPG"
+            languages="JavaScript, HTML, CSS"
+            tags="React, Three.js, Leaflet, Blender, Express, Google Auth, AWS, MongoDB, Docker"
+          />
 
-        <ProjectLink
-          title="SSIM"
-          subtitle="Salish Sea Initiative Map"
-          link="CO"
-          doc="salish-sea-interactive-map"
-          repo={null}
-          img="/SSIM/SSIM.JPG"
-          languages="PHP, JS, HTML"
-          tags="Mapbox, ArcGIS, MySQL, Bootstrap, QGIS, GeoJSON, AJAX, Git, Jira"
-        />
+          <ProjectLink
+            title="SSIM"
+            subtitle="Salish Sea Initiative Map"
+            link="CO"
+            doc="salish-sea-interactive-map"
+            repo={null}
+            img="/SSIM/SSIM.JPG"
+            languages="PHP, JS, HTML"
+            tags="Mapbox, ArcGIS, MySQL, Bootstrap, QGIS, GeoJSON, AJAX, Git, Jira"
+          />
 
-        <ProjectLink title="title1" link="www.google.ca" img='/test.jpg' tags="python, javascript, linux"/>
-      </section>
+          <ProjectLink title="title1" link="www.google.ca" img='/test.jpg' tags="python, javascript, linux"/>
+        </section>
+      </div>
     </main>
   );
 }

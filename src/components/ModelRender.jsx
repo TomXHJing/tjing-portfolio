@@ -46,7 +46,7 @@ export default function ModelRender({ filePath, rotate }) {
       <directionalLight position={[15, 12, 10]} intensity={2} castShadow />
       <ambientLight intensity={1} />
       <ItemModel filePath={filePath} rotate={rotate} />
-      <OrbitControls enableZoom={false} enablePan={false} enableRotate={true} />
+      <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} /> {/*disabled for home page link*/}
     </Canvas>
   );
 }

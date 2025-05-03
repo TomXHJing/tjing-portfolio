@@ -1,3 +1,4 @@
+// src\pages\Home.jsx
 import { useState, useEffect, useCallback } from 'react';
 import BGRender from '../components/BGRender';
 import IntroPanel from '../components/IntroPanel';
@@ -8,6 +9,7 @@ import ContentPanel from '../components/ContentPanel';
 export default function Home() {
   const [turn, setTurn] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const [model, setModel] = useState('/T-model.glb');
 
   const ModelButton = ({ label, path, currentModel, setModel }) => (
@@ -35,6 +37,7 @@ export default function Home() {
   useEffect(() => {
     const updateVisibility = () => {
       setVisible(window.scrollY > 2500);
+      setShowNav(window.scrollY > 200);
     };
 
     window.addEventListener('scroll', updateVisibility);
@@ -44,9 +47,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden overflow-y-scroll no-scrollbar scroll-snap-y snap-proximity p-8 bg-back-light text-fore-light dark:bg-back-dark dark:text-fore-dark">
+    <main className="relative min-h-screen overflow-x-hidden overflow-y-scroll no-scrollbar p-8 bg-back-light text-fore-light dark:bg-back-dark dark:text-fore-dark">
       <LoadingScreen />
-      
+
       {/* Rotation slider */}
       <div
         className={`fixed right-[18rem] bottom-1/4 z-20 transition-all duration-700 ease-out
@@ -64,35 +67,36 @@ export default function Home() {
 
       <BGRender filePath={model} turn={turn} />
 
+      {/* Empty scroll space to allow animation to play out */}
+      <div className="h-[300vh] w-full"></div>
+
       <section className="relative z-10 w-2/3 pointer-events-auto">
         <IntroPanel />
-        <NavBar />
+        <div className={`fixed z-20 transition-all duration-3000 ease-in ease-out
+          ${showNav ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            <NavBar />
+            </div>
 
-        {/* Spacer blocks */}
-        <div className="h-screen snap-start"></div>
-        <div className="h-screen snap-start"></div>
-        <div className="h-screen snap-start"></div>
-
-        {/* Panels */}
-        <ContentPanel title="Camera">
+        {/* Panels with IDs for offset scroll targeting */}
+        <ContentPanel title="Camera" id="panel-camera">
           <p>film photography, microrepair, watches</p>
           <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
           <ModelButton label="Load camera" path={models.camera} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
-        <ContentPanel title="Art and chroots">
+        <ContentPanel title="Art and chroots" id="panel-art">
           <p>breaking beyond intended uses, chroot debian, posters</p>
           <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
           <ModelButton label="Load Chromebook" path={models.chromebook} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
-        <ContentPanel title="Drone pics">
+        <ContentPanel title="Drone pics" id="panel-drone">
           <p>repair and refurbrush, high tech, bringing new perspectives</p>
           <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
           <ModelButton label="Load drone" path={models.drone} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
-        <ContentPanel title="3D Prints">
+        <ContentPanel title="3D Prints" id="panel-prints">
           <p>creation, robotics, practical uses, shop</p>
           <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
           <ModelButton label="Load prusa" path={models.printer} currentModel={model} setModel={setModel} />

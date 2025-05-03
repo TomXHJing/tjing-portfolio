@@ -13,21 +13,21 @@ export default function LoadingScreen() {
     const logoTimer = setTimeout(() => {
       setShowLogo(false);
       setShowLoader(true);
-    }, 1000);
+    }, 500);
 
     const loaderTimer = setTimeout(() => {
       setShowLoader(false);
       setExpandBars(true);
-    }, 2000);
+    }, 1200);
 
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
       document.body.style.overflow = 'auto';
-    }, 3000);
+    }, 2000);
 
     const hideTimer = setTimeout(() => {
       setVisible(false);
-    }, 4000);
+    }, 2700);
 
     document.body.style.overflow = 'hidden';
 

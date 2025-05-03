@@ -1,5 +1,6 @@
 // src\components\NavBar.jsx
 
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import ModelRender from '../components/ModelRender';
@@ -17,20 +18,11 @@ export default function NavBar() {
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
-  useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > 150);
-    };
-
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   const handleDragEnd = (_, info) => {
     if (info.offset.x > 100) {
       setTriggerRotation(true);
-      // Automatically stop rotation after 2s
-      setTimeout(() => setTriggerRotation(false), 2000);
+      // Automatically stop rotation after 5s
+      setTimeout(() => setTriggerRotation(false), 5000);
     }
 
     // Spring back
@@ -39,16 +31,12 @@ export default function NavBar() {
 
   return (
     <div
-      className={`
-        fixed z-50 px-24 pt-8 top-0 left-0 w-full transition-transform duration-700 ease-in-out
-        ${visible ? 'translate-y-0' : '-translate-y-full'}
-      `}
-    >
-      <nav className="grid grid-cols-12 gap-0">
-        <div className="col-span-1 w-full h-[4rem]">
-        <ModelRender filePath="/T-nav.glb" rotate={triggerRotation} />
-        </div>
-        <div className="col-span-11 relative backdrop-blur-md bg-white/5 ring-1 ring-white/15 shadow-lg p-4 rounded-2xl flex justify-between items-center">
+      className="fixed z-50 px-[2%] pt-8 top-0 left-0 w-full transition-transform duration-700 ease-in-out">
+      <nav className="grid grid-cols-12 gap-0 -translate-x-10">
+        <Link to="/" className="col-span-1 right-0 top-0 w-full h-[4rem] translate-x-4 -translate-y-2">
+          <ModelRender filePath="/T-nav.glb" rotate={triggerRotation} />
+        </Link>
+        <div className="col-span-11 relative backdrop-blur-md bg-white/5 ring-1 ring-white/15 shadow-lg px-4 max-h-[3rem] rounded-[3rem] flex justify-between items-center">
           
           {/* spin the model */}
           <motion.div
@@ -56,7 +44,7 @@ export default function NavBar() {
             dragConstraints={{ left: 0, right: 150 }}
             style={{ x }}
             onDragEnd={handleDragEnd}
-            className="absolute left-2 top-1/2 -translate-y-1/2 select-none cursor-ew-resize font-mono text-lg text-foreground bg-foreground/10 px-2 py-1 rounded-md flex items-center z-10"
+            className="absolute left-[10rem] top-2 select-none cursor-ew-resize font-mono text-lg text-foreground bg-foreground/10 px-2 py-1 rounded-md flex items-center z-10"
           >
             <span>{'⇒'}</span>
             <motion.span
@@ -68,7 +56,7 @@ export default function NavBar() {
           </motion.div>
           <div className="text-xl font-bold text-foreground">Tom's MySpace</div>
           <ul className="flex gap-6 text-light-fore font-medium">
-            <li><a href="#projects" className="hover:underline">Projects</a></li>
+            <li><a href="projects" className="hover:underline">Projects</a></li>
             <li><a href="#about" className="hover:underline">About</a></li>
             <li><a href="#contact" className="hover:underline">Contact</a></li>
           </ul>

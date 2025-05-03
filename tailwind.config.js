@@ -1,20 +1,18 @@
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
-  darkMode: 'class',
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        // semantic colors
-        back: {
-          light: '#D0E0F0',
-          dark: '#102030',
-        },
-        fore: {
-          light: '#203040',
-          dark: '#A0B0C0',
-        },
+        'back-light': '#D0E0F0',
+        'fore-light': '#405060',
+        'back-dark': '#102030',
+        'fore-dark': '#A0B0C0',
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 };

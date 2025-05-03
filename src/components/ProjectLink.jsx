@@ -73,13 +73,13 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
     };
 
   return (
-    <section className="flex justify-center w-full py-1">
+    <section className="flex justify-center w-full py-1 ">
         <div className="flex items-center w-full max-w-[87.5%] mx-auto">
 
             {/* Left Bracket */}
             <div className="text-[7rem] -translate-y-4 leading-none text-center select-none text-fore-dark dark:text-fore-light">[</div>
 
-            <div className="relative mx-10 w-full h-[5rem] overflow-hidden rounded-3xl ring-1 ring-white/5 shadow-lg mx-auto">
+            <div className="relative mx-10 w-full h-[5rem] overflow-hidden rounded-3xl ring-1 ring-white/5 shadow-lg mx-auto bg-back-light dark:bg-back-dark">
                 <motion.div
                     drag="x"
                     dragConstraints={{ left: 0, right: slideDistance }}

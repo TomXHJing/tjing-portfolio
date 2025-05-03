@@ -50,10 +50,22 @@ export default function Projects() {
           link="CO"
           doc="bridgingroots"
           repo={null}
-          img="/test.jpg"
+          img="/BridgingRoots/bridgingroots-home.JPG"
           languages="JavaScript, HTML, CSS"
-          tags="React, Three.js, Leaflet, Polycam, Blender, Express, Google Auth, AWS, MongoDB, Docker"
+          tags="React, Three.js, Leaflet, Blender, Express, Google Auth, AWS, MongoDB, Docker"
         />
+
+        <ProjectLink
+          title="SSIM"
+          subtitle="Salish Sea Initiative Map"
+          link="CO"
+          doc="salish-sea-interactive-map"
+          repo={null}
+          img="/SSIM/SSIM.JPG"
+          languages="PHP, JS, HTML"
+          tags="Mapbox, ArcGIS, MySQL, Bootstrap, QGIS, GeoJSON, AJAX, Git, Jira"
+        />
+
         <ProjectLink title="title1" link="www.google.ca" img='/test.jpg' tags="python, javascript, linux"/>
       </section>
     </main>

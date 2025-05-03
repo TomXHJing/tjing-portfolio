@@ -74,7 +74,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
 
   return (
     <section className="flex justify-center w-full py-1">
-        <div className="flex items-center w-full max-w-[88%] mx-auto">
+        <div className="flex items-center w-full max-w-[87.5%] mx-auto">
 
             {/* Left Bracket */}
             <div className="text-[7rem] -translate-y-4 leading-none text-center select-none text-fore-dark dark:text-fore-light">[</div>
@@ -89,7 +89,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                 >
                     {/* LEFT: Main content (always visible): W balanced with Right */}
                     <div className="w-[50%] p-4 flex items-center gap-4 bg-fore-dark dark:bg-fore-light backdrop-blur-sm">
-                        {/* Icon / handle */}
+                        {/* Dragger handle */}
                         <div className="cursor-ew-resize text-3xl -translate-y-1 select-none opacity-40">||</div>
 
                         {/* Title, subtitle, and tags */}
@@ -97,7 +97,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                         <div>
                             <span className="text-xl font-bold">{title}</span>
                             {subtitle && (
-                                <span className="text-lg px-0.5">:{subtitle}</span>
+                                <span className="text-lg px-0.5">: {subtitle}</span>
                             )}
                         </div>
                         <div className="text-sm opacity-80">
@@ -132,7 +132,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                             Visit project here!
                         </a>
                         ) : link === "CO" ? (
-                        <span>Sorry, community access only.</span>
+                        <span>Sorry, closed community access only.</span>
                         ) : link === "WIP" ? (
                         <span>Project under construction, come back later!</span>
                         ) : link === "UNA" ? (

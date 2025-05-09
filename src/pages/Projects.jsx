@@ -55,7 +55,7 @@ export default function Projects() {
             link="CO"
             doc="bridgingroots"
             repo={null}
-            img="/BridgingRoots/bridgingroots-home.JPG"
+            img="/BridgingRoots/banner.jpg"
             languages="JavaScript, HTML, CSS"
             tags="React, Three.js, Leaflet, Blender, Express, Google Auth, AWS, MongoDB, Docker"
           />
@@ -66,9 +66,53 @@ export default function Projects() {
             link="CO"
             doc="salish-sea-interactive-map"
             repo={null}
-            img="/SSIM/SSIM.JPG"
+            img="/SSIM/banner.jpg"
             languages="PHP, JS, HTML"
             tags="Mapbox, ArcGIS, MySQL, Bootstrap, QGIS, GeoJSON, AJAX, Git, Jira"
+          />
+
+          <ProjectLink
+            title="Personal Portfolio"
+            subtitle="Frontpage of what I do"
+            link="tjing.dev"
+            doc={null}
+            repo="https://github.com/TomXHJing/tjing-portfolio"
+            img="/stars-wallpaper.jpg"
+            languages="JavaScript, HTML, CSS"
+            tags="React, Three.js, Tailwind CSS, Framer Motion, Vite, React Router, Git"
+          />
+
+          <ProjectLink
+            title="LED Matrix Display"
+            subtitle="Multi-purpose smart display"
+            link="UNA"
+            doc={null}
+            repo="https://github.com/hzeller/rpi-rgb-led-matrix"
+            img="/Matrix/banner.jpg"
+            languages="C++, Python, Bash"
+            tags="Raspberry Pi, LED Matrix, PWM, SSH, NTP, Embedded Linux, DIY"
+          />
+
+          <ProjectLink
+            title="BOLY"
+            subtitle="A polygon-blob game"
+            link="WIP"
+            doc={null}
+            repo={null}
+            img="/test.jpg"
+            languages="placeholder"
+            tags="placeholder"
+          />
+
+          <ProjectLink
+            title="Map Stitch"
+            subtitle="Your pictures, your places, your map"
+            link="WIP"
+            doc={null}
+            repo={null}
+            img="/test.jpg"
+            languages="placeholder"
+            tags="placeholder"
           />
 
           <ProjectLink title="title1" link="www.google.ca" img='/test.jpg' tags="python, javascript, linux"/>

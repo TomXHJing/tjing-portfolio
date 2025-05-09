@@ -59,9 +59,10 @@ export default function NavBar() {
             </motion.span>
           </motion.div>
           <Link to="/" className="text-xl font-bold text-foreground">Tom's MySpace</Link>
-          <ul className="flex gap-2 text-light-fore font-medium">
+          <ul className="flex gap-2 text-light-fore font-medium ">
             <li><a href="projects" className="hover:ring-white/15 ring-white/0 rounded-xl px-2 py-1 bg-white/5 pb-1.5 ring-1">Projects</a></li>
             <li><a href="#about" className="hover:ring-white/15 ring-white/0 rounded-xl px-2 py-1 bg-white/5 pb-1.5 ring-1">About</a></li>
+            <li><a href="resume" className="hover:ring-white/15 ring-white/0 rounded-xl px-2 py-1 bg-white/5 pb-1.5 ring-1">Résumé</a></li>
             <li><a href="#contact" className="hover:ring-white/15 ring-white/0 rounded-xl px-2 py-1 bg-white/5 pb-1.5 ring-1">Contact</a></li>
           </ul>
 

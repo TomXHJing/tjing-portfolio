@@ -74,7 +74,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
 
   return (
     <section className="flex justify-center w-full py-1 ">
-        <div className="flex items-center w-full max-w-[87.5%] mx-auto">
+        <div className="flex items-center w-full max-w-[82%] mx-auto">
 
             {/* Left Bracket */}
             <div className="text-[7rem] -translate-y-4 leading-none text-center select-none text-fore-dark dark:text-fore-light">[</div>
@@ -128,11 +128,11 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                     {/* Left: Link */}
                     <div className="text-left">
                         {link && link !== "WIP" && link !== "CO" && link !== "UNA" ? (
-                        <a href={link} target="_blank" className="underline hover:text-blue-400">
-                            Visit project here!
+                        <a href={link} target="_blank" className="hover:text-white">
+                            Visit this project
                         </a>
                         ) : link === "CO" ? (
-                        <span>Sorry, closed community access only.</span>
+                        <span>Community access only.</span>
                         ) : link === "WIP" ? (
                         <span>Project under construction, come back later!</span>
                         ) : link === "UNA" ? (
@@ -145,7 +145,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                         {doc && (
                             <IoDocumentTextOutline 
                                 title="Document link"
-                                className="w-9 h-9 cursor-pointer"
+                                className="w-9 h-9 cursor-pointer hover:text-white"
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => window.open(doc, '_blank')}
@@ -154,7 +154,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                         {repo && (
                             <IoLogoGithub 
                                 title="Github link"
-                                className="w-9 h-9 cursor-pointer"
+                                className="w-9 h-9 cursor-pointer hover:text-white"
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => window.open(repo, '_blank')}

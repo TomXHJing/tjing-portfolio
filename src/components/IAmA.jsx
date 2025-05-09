@@ -66,7 +66,7 @@ export default function IAmA({ mainRole = "software developer", roles, delayBefo
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[12rem]">
             <TypingAnimation
               text={`I'm a ${mainRole}, and...`}
-              speed={100}
+              speed={75}
               className="text-4xl font-bold text-center"
               onDone={() => setTimeout(() => setShowMain(false), 20000)}
             />
@@ -77,7 +77,7 @@ export default function IAmA({ mainRole = "software developer", roles, delayBefo
           <TypingAnimation
             key={id}
             text={text}
-            className={`absolute ${color} text-xl font-bold opacity-30 transition-opacity duration-1000`}
+            className={`absolute ${color} text-xl font-bold opacity-100 dark:opacity-30 transition-opacity duration-1000`}
             style={{ top: pos.top, left: pos.left }}
             speed={50}
           />

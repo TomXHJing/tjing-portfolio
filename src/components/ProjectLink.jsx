@@ -117,7 +117,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                         <img
                             src={img}
                             alt="Project image"
-                            className="w-[100%] object-cover opacity-95"
+                            className="w-[100%] object-fill opacity-95"
                         />
                     </div>
                 </motion.div>
@@ -136,7 +136,7 @@ export default function ProjectLink({ title, subtitle, link, doc, repo, img, lan
                         ) : link === "WIP" ? (
                         <span>Project under construction, come back later!</span>
                         ) : link === "UNA" ? (
-                        <span>Sorry, link currently unavailable.</span>
+                        <span>See documentation for more info!</span>
                         ) : null}
                     </div>
 

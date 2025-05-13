@@ -86,13 +86,65 @@ export default function Projects() {
             title="LED Matrix Display"
             subtitle="Multi-purpose smart display"
             link="UNA"
-            doc={null}
+            doc="led-matrix-display"
             repo="https://github.com/hzeller/rpi-rgb-led-matrix"
             img="/Matrix/banner.jpg"
             languages="C++, Python, Bash"
-            tags="Raspberry Pi, LED Matrix, PWM, SSH, NTP, Embedded Linux, DIY"
+            tags="Raspberry Pi, LED Matrix, PWM, SSH, NTP, Embedded Linux"
           />
 
+          <ProjectLink
+            title="RainShroom"
+            subtitle="Physicalizing precipitation for mushroom foraging"
+            link="UNA"
+            doc="/docs/rainshroom.pdf"
+            repo={null}
+            img="/rainshroom-banner.JPG"
+            languages="Arduino, C++"
+            tags="Data Physicalization, 3D Printing, CAD, Sensor Mapping"
+          />
+
+          <div className="flex justify-center w-full">
+            <div className="w-1/3 h-0 translate-y-[0.8rem] border-white/25 border-2"></div>
+            <p className="px-5 font-bold text-xl">[Works In Progress]</p>
+            <div className="w-1/3 h-0 translate-y-[0.8rem] border-white/25 border-2"></div>
+          </div>
+
+          <ProjectLink
+            title="Sty-AI"
+            subtitle="A smart mirror that sees your clothes and styles your day"
+            link="WIP"
+            doc={null}
+            repo={null}
+            img="/style-ai-banner.JPG"
+            languages="Python, JS, React"
+            tags="YOLOv8, Roboflow, Machine Vision, MagicMirror, Raspberry Pi, TailwindCSS, DALL·E"
+          />
+
+          <ProjectLink
+            title="Map Stitch"
+            subtitle="Draw paths with your memories"
+            link="WIP"
+            doc={null}
+            repo={null}
+            img="/mapstitch-banner.JPG"
+            languages="Kotlin, Android SDK, XML"
+            tags="OpenStreetMap, Tile Overlays, Touch Gestures, Media Picker, Image Masking, GPS"
+          />
+
+          <ProjectLink
+            title="CorNote"
+            subtitle="Spatially-linked notes with dynamic visual connections"
+            link="WIP"
+            doc={null}
+            repo={null}
+            img="/cornote-banner.JPG"
+            languages="C#, Unity, ShaderLab"
+            tags="OOP, Graph Systems, Mind Mapping, 3D UI"
+          />
+
+          {/*Hiddens
+          
           <ProjectLink
             title="BOLY"
             subtitle="A polygon-blob game"
@@ -103,19 +155,9 @@ export default function Projects() {
             languages="placeholder"
             tags="placeholder"
           />
+          
+          */}
 
-          <ProjectLink
-            title="Map Stitch"
-            subtitle="Your pictures, your places, your map"
-            link="WIP"
-            doc={null}
-            repo={null}
-            img="/test.jpg"
-            languages="placeholder"
-            tags="placeholder"
-          />
-
-          <ProjectLink title="title1" link="www.google.ca" img='/test.jpg' tags="python, javascript, linux"/>
         </section>
       </div>
     </main>

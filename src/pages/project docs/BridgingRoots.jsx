@@ -64,7 +64,7 @@ export default function BridgingRoots() {
           <div className="mt-8">
             <h3 className="text-2xl font-semibold mb-2">Project Media</h3>
             <div className="flex gap-4 overflow-x-scroll no-scrollbar">
-              {['bridgingroots-home.JPG', 'dictionary.JPG', 'map.JPG', 'units.JPG'].map((file, idx) => (
+              {['bridgingroots-home.JPG', 'team.jpg', 'map.JPG', 'tuk.jpg'].map((file, idx) => (
                 <a key={idx} href={`/BridgingRoots/${file}`} target="_blank" rel="noopener noreferrer">
                   <img src={`/BridgingRoots/${file}`} alt={`Bridging Roots ${idx + 1}`} className="w-64 h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform" />
                 </a>

@@ -125,72 +125,63 @@ export default function Home() {
         {/* Panels with IDs for offset scroll targeting */}
         <ContentPanel title="Root Access: Who I Am" id="panel-camera">
           <p>
-            I'm from Shanghai, grew up in Vancouver, and found myself lost in a world of blinking cursors and CRT glow. What started on a dusty Windows XP machine became a journey of patching, compiling, and building my own systems from scratch. I like to break things—on purpose—and figure out how they tick.
-
-            That same curiosity is why I enrolled in Computer Science at UVic: to understand the logic that underpins everything from social networks to microcontrollers. This site is a repo, a changelog, and an API into the things I build, break, and refine.
+          Born in Shanghai and raised in Burnaby. My interest in technology began with a hand-me-down Windows XP machine. It wasn’t cutting-edge, but it offered freedom. I spent hours installing, breaking, and fixing software, slowly learning how everything worked. That hands-on curiosity led me to pursue a degree in Computer Science at the University of Victoria. This portfolio represents that journey. It captures what I’ve built, repaired, or explored, driven by a need to understand things by doing.
           </p>
-          <img src="/test.jpg" alt="test" className="col-span-1 mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load camera" path={models.camera} currentModel={model} setModel={setModel} />
+          <img src="/Tom.JPG" alt="Tom the Creator" className="col-span-1 mx-auto mt-4 rounded-lg w-[300px]" />
+          <button onClick={() => window.location.href='/projects'} className="mt-4 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg transition-colors duration-300">
+            Explore Projects
+          </button>
         </ContentPanel>
 
         <ContentPanel title="Legacy Systems: Restoring the Past" id="panel-camera">
           <p>
-            I found this old Zenit 3 film camera in a thrift store, barely holding together—screws loose, mirror stuck, body gunked up. It reminded me of legacy code: intimidating, elegant, misunderstood. I rebuilt it like a refactor—small, reversible steps—and took it with me on real-world ‘debugging’ journeys.
-
-            Restoring this camera taught me that reverse engineering isn’t just a tool, it’s a mindset—vital when working with systems where documentation is long gone.
+          I found an old Zenit film camera in a thrift store, broken and neglected. Restoring it became an exercise in mechanical reasoning. There was no guidebook, just a set of problems to solve. Working through that camera gave me a better understanding of how to approach legacy systems in code. It taught me to listen closely, to investigate with care, and to respect the thinking of those who came before me.
+          It gave me the confidence that as long as a person made it, I can fix it.
           </p>
           <img src="/camera.jpg" alt="Zenit 3 film camera" className="col-span-1 mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load camera" path={models.camera} currentModel={model} setModel={setModel} />
+          <ModelButton label="See the Zenit 3 (1961)" path={models.camera} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
         <ContentPanel title="Manual Mode: Driving by Wire, Learning by Tactile" id="panel-art">
           <p>
-            My dream car wasn’t a Ferrari. It was a Miata with 314k on the clock, no power anything, and a five-speed I couldn’t drive. Like learning a low-level language, I dove into its internals: wiring harnesses, fluids, grounding issues, timing, torque specs.
-
-            What started as a repair job turned into embedded learning—wrenching gave me a real-world model of systems thinking, fail states, and upgrades. It taught me that clean design isn’t about complexity—it’s about access, modularity, and trust in the community.
+          I bought a Miata with over 300,000 kilometers on it, knowing I didn’t yet know how to drive manual. What started as a challenge became a classroom. I traced grounding faults, rewired systems, and rebuilt parts I had only read about. The experience showed me how interconnected everything is. Every failure pointed to a lesson, and every fix improved my intuition for how systems communicate, whether mechanical or digital.
           </p>
-          <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load Chromebook" path={models.miata} currentModel={model} setModel={setModel} />
+          <img src="/Miata.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
+          <ModelButton label="The keys to the money pit" path={models.miata} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
         <ContentPanel title="Posters as UI: Designing Visual Interfaces" id="panel-art">
           <p>
-            I design posters the same way I design interfaces—clear hierarchy, elegant layout, and just enough novelty to spark interest. Whether it’s for a house party or a campus event, the goal is the same: deliver useful information, fast.
-
-            These projects helped me bridge the gap between aesthetics and clarity, a core tenet in UI/UX. Good design is invisible—it works before it’s noticed.
+          Poster design became a quiet training ground for my sense of layout and communication. Each project forced me to focus on space, rhythm, and clarity. These lessons carried over into how I design user interfaces. I learned that good design doesn't speak louder, it speaks clearer. If someone has to stop and decode what they see, the interface has already failed.
+          It's on this now depreciated Chromebook turned Linux machine where I did some of my finest work, covered in inspiration and a 9 hour battery life, there's no better platform.
           </p>
-          <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load Chromebook" path={models.chromebook} currentModel={model} setModel={setModel} />
+          <img src="/posters.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
+          <ModelButton label="A sticker-bombed perfection" path={models.chromebook} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
         <ContentPanel title="Remote Runtime: My Developer Environment" id="panel-art">
           <p>
-            This is my remote workstation, where overpriced flat whites meet a VS Code setup with way too many extensions. It's where most of my commits are born—some thoughtful, some chaotic, all part of the process.
-
-            Every project on this site started here, iterated on the go, versioned, forked, and sometimes force pushed. Explore the tabs to see what’s been built.
+          Most of my work begins in a minimal setup: a laptop, a clean code editor, and a plan to break things and rebuild. This is where I test ideas, organize architecture, and refine workflows. Over time, I’ve come to value tools that get out of the way and systems that are simple to reason about. These preferences shape how I approach every new project.
+          The laptop itself is anything but, bought refurbrished in 2018, it has died many times, SSD, case, battery, and speakers. If it can make it through a project, so can I.
           </p>
-          <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load Chromebook" path={models.laptop} currentModel={model} setModel={setModel} />
+          <img src="/team.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
+          <ModelButton label="The Laptop of Theseus" path={models.laptop} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
         <ContentPanel title="Aerial Debugging: From Flying to Object Tracking" id="panel-drone">
           <p>
-            What started as a broken drone I found on Marketplace turned into a full-stack inspiration. Fixing the gimbal led me into computer vision—object tracking, 3D rendering, and eventually integrating YOLO models and Three.js.
-
-            This project reminded me that exploration at altitude often leads to deeper understanding at ground level. It’s a node that connects many branches in my repo.
+          When my drone broke, I didn’t send it in. I opened it up. That decision led me into a world of sensor calibration and real-world feedback loops. Fixing it was my first step into computer vision. I began exploring object tracking and sensor fusion, learning how machines interpret movement and space. It’s a space I still return to, combining code, hardware, and human intuition.
           </p>
-          <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load drone" path={models.drone} currentModel={model} setModel={setModel} />
+          <img src="/drone.JPG" alt="Bird's eye view of a rocky coast" className="mx-auto mt-4 rounded-lg w-[300px]" />
+          <ModelButton label="A fine $150 FB Marketplace purchuse" path={models.drone} currentModel={model} setModel={setModel} />
         </ContentPanel>
 
         <ContentPanel title="Hardware Abstraction: Printing Interfaces" id="panel-prints">
           <p>
-            My 3D printer is my compiler for the physical world. Built from a kit, broken and rebuilt a dozen times, it’s taught me hardware constraints, iteration, and debugging physical tolerances—not just syntax.
-
-            It’s how my Raspberry Pi and Arduino projects leave the terminal and enter reality—frames, enclosures, mounts. Through this, I learned to think dimensionally: from CAD to Blender to the real world.
+          I assembled my 3D printer from a kit, not just to print, but to learn. Every misstep taught me something about calibration, tolerances, and what it means to bring a design to life. Now, I use it to prototype enclosures, create functional parts, and solve problems in the physical world. It taught me that ideas only matter when they can be built and used.
           </p>
-          <img src="/test.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
-          <ModelButton label="Load prusa" path={models.printer} currentModel={model} setModel={setModel} />
+          <img src="/prints.jpg" alt="Placeholder image" className="mx-auto mt-4 rounded-lg w-[300px]" />
+          <ModelButton label="The backbone of Projects" path={models.printer} currentModel={model} setModel={setModel} />
         </ContentPanel>
       </section>
     </main>
